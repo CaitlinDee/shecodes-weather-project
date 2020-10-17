@@ -36,3 +36,8 @@ img {
   font-size: 1.25rem;
   color: #646464;
 }
+
+#project-link {
+  text-align: center;
+  color: rgb(82, 82, 82);
+}
