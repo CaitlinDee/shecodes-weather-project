@@ -5,15 +5,14 @@ img {
   display: block;
   margin: 0 auto;
 }
+
 .col-lg-2 {
   width: 300px;
 }
 .temp-cards {
   display: inline;
 }
-.temp {
-  font-size: 3.5rem;
-}
+
 .card-title {
   font-size: 16px;
 }
@@ -31,13 +30,20 @@ img {
   padding-left: 1px;
   padding-right: 1px;
 }
-
 #update {
   font-size: 1.25rem;
   color: #646464;
 }
+#currentTemp {
+  font-size: 3.5rem;
+}
 
-#project-link {
-  text-align: center;
-  color: rgb(82, 82, 82);
+#header {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+#body {
+  background-image: linear-gradient(135deg, #f5f7fa 20%, #c3cfe2 100%);
+}
+#currentTime {
+  text-align: right;
 }

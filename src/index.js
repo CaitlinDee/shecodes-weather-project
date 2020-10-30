@@ -1,69 +1,61 @@
+// Current Date & Time
+
 let now = new Date();
 let hours = now.getHours();
 let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = "0" + minutes;
 }
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 let day = days[now.getDay()];
-let h4 = document.querySelector("#current-time");
-h4.innerHTML = `${day} ${hours}:${minutes} `;
+let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+let month = months[now.getMonth()];
+let date = now.getDate();
+let h4 = document.querySelector("#currentDate");
+h4.innerHTML = `${day}, ${month} ${date}`
+
+// let currentTime = document.querySelector("#currentTime");
+// currentTime.innerHTML = `${hours}:${minutes}`
+
+// Current Location
+
+let apiKey = "e959d3b8f294d5e24acf7b30e2b48feb";
+
+function showLocation(position) {
+  let lat = position.coords.latitude;
+  console.log(lat);
+  let lon = position.coords.longitude;
+  console.log(lon);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}`;
+  axios.get(`${apiUrl}&units=imperial&appid=${apiKey}`).then(showTemperature);
+}
+
+function pickCurrentLocation(event) {
+navigator.geolocation.getCurrentPosition(showLocation);
+}
+let element = document.querySelector("#getLocation");
+element.addEventListener("click", pickCurrentLocation);
+
+function showTemperature(response) {
+  console.log(response);
+  let temp = Math.round(response.data.main.temp);
+  let rightNow = document.querySelector("#currentTemp");
+  rightNow.innerHTML = `${temp}°F`
+  let here = document.querySelector("#here");
+  here.innerHTML = (response.data.name);
+}
+
+// Search city
 
 function searchCity(event) {
   event.preventDefault();
-  let textInput = document.querySelector("#new-city");
-  let h1 = document.querySelector(".current-location");
-  if (textInput.value) {
-    h1.innerHTML = `${textInput.value}`;
-  }
+  let cityName = document.querySelector("#cityInput");
+  console.log(cityName.value);
+  let apiUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&units=imperial&appid=${apiKey}`;
+  axios.get(apiUrlCity).then(showTemperature);
 }
 
-let form = document.querySelector("#search-city");
-form.addEventListener("submit", searchCity);
+let searchButton = document.querySelector("#searchButton");
+searchButton.addEventListener("click", searchCity);
 
-let weather = {
-  paris: {
-    temp: 19.7,
-    humidity: 80,
-  },
-  tokyo: {
-    temp: 17.3,
-    humidity: 50,
-  },
-  lisbon: {
-    temp: 30.2,
-    humidity: 20,
-  },
-  "san francisco": {
-    temp: 20.9,
-    humidity: 100,
-  },
-  moscow: {
-    temp: -5,
-    humidity: 20,
-  },
-};
 
-let city = prompt("Enter a city:");
-city = city.trim().toLowerCase();
-if (weather[city] !== undefined) {
-  let temperature = Math.round(weather[city].temp);
-  let fahrenheit = Math.round(temperature + 9 / 5 + 32);
-  let humidity = weather[city].humidity;
-  alert(
-    `It is currently ${temperature}°C (${fahrenheit}°F) in ${city} with a humidity of ${humidity}%`
-  );
-} else {
-  alert(
-    `Sorry, we don't know the weather for this city. Try going to https://www.google.com`
-  );
-}

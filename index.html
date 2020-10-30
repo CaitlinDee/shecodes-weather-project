@@ -9,7 +9,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-    <link rel="stylesheet" href="src/style.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 
     <title>Weather App</title>
@@ -17,23 +21,28 @@
 
 <body>
     <div class="container">
-        <header class="location border border-dark p-2 pt-3 m-2">
-            <form id="search-city">
+
+        <header class="location border border-dark p-2 pt-3 m-2" id="header">
+            <!-- <div id="currentTime">10:00</div> -->
+            <form>
                 <label for="exampleInputLocation1" id="update">Enter Location:</label>
-                <input type="text" id="new-city" placeholder="City, State OR Zip Code" />
-                <input type="submit" id="search" value="Go">
+                <input type="text" placeholder="City" id="cityInput" />
+                <input type="submit" value="Go" class="btn btn-primary py-1" id="searchButton">
+                <button type="button" class="btn btn-link py-1" id="getLocation">Current Location</button>
+
             </form>
+
         </header>
-        <div class="border border-dark py-2 px-3 m-2">
-            <h1 class="current-location">Omaha</h1>
-            <h4 id="current-time"></h4>
+        <div class="border border-dark py-2 px-3 m-2" id="body">
+            <h1 class="current-location" id="here">Search a City or Select Current Location</h1>
+            <h4 id="currentDate"></h4>
 
             <div class="row">
                 <div class="col-6 current-temp">
-                    <h5>Current Temperature:</h5><span class="temp">53°</span>
+                    <h5>Current Temperature:</h5><span id="currentTemp"></span>
                 </div>
                 <div class="col-6 d-none d-lg-block mb-2">
-                    <img src="src/weather_illustration.svg" height="250px"
+                    <img src="weather_illustration.svg" height="250px"
                         alt="illustration of girl sitting on cloud and sun">
                 </div>
             </div>
@@ -44,7 +53,7 @@
                     <div class="col-lg-2 col-md-6 col-sm-12 ">
                         <div class="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title">TOMORROW</h5>
+                                <h5 class="card-title" id="day-one">TOMORROW</h5>
                                 <p class="card-text">80°
                                     <hr><em class="low">60°</em></p>
                             </div>
@@ -53,7 +62,7 @@
                     <div class="col-lg-2 col-md-6 col-sm-12 ">
                         <div class="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title">TUESDAY</h5>
+                                <h5 class="card-title" id="day-two">TUESDAY</h5>
                                 <p class="card-text">80°
                                     <hr><em class="low">60°</em></p>
                             </div>
@@ -62,7 +71,7 @@
                     <div class="col-lg-2 col-md-6 col-sm-12 ">
                         <div class="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title">WEDNESDAY</h5>
+                                <h5 class="card-title" id="day-three">WEDNESDAY</h5>
                                 <p class="card-text">80°
                                     <hr><em class="low">60°</em></p>
                             </div>
@@ -71,7 +80,7 @@
                     <div class="col-lg-2 col-md-6 col-sm-12 ">
                         <div class="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title">THURSDAY</h5>
+                                <h5 class="card-title" id="day-four">THURSDAY</h5>
                                 <p class="card-text">80°
                                     <hr><em class="low">60°</em></p>
                             </div>
@@ -80,7 +89,7 @@
                     <div class="col-lg-2 col-md-6 col-sm-12 ">
                         <div class="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title">FRIDAY</h5>
+                                <h5 class="card-title" id="day-five">FRIDAY</h5>
                                 <p class="card-text">80°
                                     <hr><em class="low">60°</em></p>
                             </div>
@@ -89,9 +98,7 @@
                 </div>
             </div>
         </div>
-        <a href="https://github.com/CaitlinDee/shecodes-weather-project/find/master" id="project-link">See github project</a>
     </div>
-   
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -105,7 +112,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-    <script src="src/index.js"></script>
+
+    <!-- Custom JS -->
+    <script src="index.js"></script>
 </body>
 
 </html>
