@@ -14,8 +14,18 @@ let date = now.getDate();
 let h4 = document.querySelector("#currentDate");
 h4.innerHTML = `${day}, ${month} ${date}`
 
-// let currentTime = document.querySelector("#currentTime");
-// currentTime.innerHTML = `${hours}:${minutes}`
+let currentTime = document.querySelector("#currentTime");
+currentTime.innerHTML = `Last Updated: ${hours}:${minutes}`;
+let threeHours = document.querySelector("#update-one");
+threeHours.innerHTML = `${hours + 3}:${minutes}`;
+let sixHours = document.querySelector("#update-two");
+sixHours.innerHTML = `${hours + 6}:${minutes}`;
+let nineHours = document.querySelector("#update-three");
+if (`${hours +9}` > 24) nineHours.innerHTML = `${hours-15}:${minutes}`; else nineHours.innerHTML = `${hours + 12}:${minutes}`;
+let twelveHours = document.querySelector("#update-four");
+if (`${hours +12}` > 24) twelveHours.innerHTML = `${hours-12}:${minutes}`; else twelveHours.innerHTML = `${hours + 12}:${minutes}`;
+let fifteenHours = document.querySelector("#update-five");
+if (`${hours +15}` > 24) fifteenHours.innerHTML = `${hours-9}:${minutes}`; else fifteenHours.innerHTML = `${hours + 12}:${minutes}`;
 
 // Current Location
 

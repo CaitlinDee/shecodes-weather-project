@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="src/style.css" />
 
     <!-- axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -23,7 +23,7 @@
     <div class="container">
 
         <header class="location border border-dark p-2 pt-3 m-2" id="header">
-            <!-- <div id="currentTime">10:00</div> -->
+            
             <form>
                 <label for="exampleInputLocation1" id="update">Enter Location:</label>
                 <input type="text" placeholder="City" id="cityInput" />
@@ -36,13 +36,15 @@
         <div class="border border-dark py-2 px-3 m-2" id="body">
             <h1 class="current-location" id="here">Search a City or Select Current Location</h1>
             <h4 id="currentDate"></h4>
+            <h4 id="currentTime">Last Updated: 10:00</h4>
 
             <div class="row">
                 <div class="col-6 current-temp">
                     <h5>Current Temperature:</h5><span id="currentTemp"></span>
+                    
                 </div>
                 <div class="col-6 d-none d-lg-block mb-2">
-                    <img src="weather_illustration.svg" height="250px"
+                    <img src="src/weather_illustration.svg" height="250px"
                         alt="illustration of girl sitting on cloud and sun">
                 </div>
             </div>
@@ -53,45 +55,45 @@
                     <div class="col-lg-2 col-md-6 col-sm-12 ">
                         <div class="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title" id="day-one">TOMORROW</h5>
-                                <p class="card-text">80°
-                                    <hr><em class="low">60°</em></p>
+                                <h5 class="card-title" id="update-one">3 hours</h5>
+                                <p class="card-text" id="high-one">80°
+                                    <hr><em class="low" id="low-one">60°</em></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 ">
                         <div class="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title" id="day-two">TUESDAY</h5>
-                                <p class="card-text">80°
-                                    <hr><em class="low">60°</em></p>
+                                <h5 class="card-title" id="update-two">6 hours</h5>
+                                <p class="card-text" id="high-two">80°
+                                    <hr><em class="low" id="low-two">60°</em></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 ">
                         <div class="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title" id="day-three">WEDNESDAY</h5>
-                                <p class="card-text">80°
-                                    <hr><em class="low">60°</em></p>
+                                <h5 class="card-title" id="update-three">9 hours</h5>
+                                <p class="card-text" id="high-three">80°
+                                    <hr><em class="low" id="low-three">60°</em></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 ">
                         <div class="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title" id="day-four">THURSDAY</h5>
-                                <p class="card-text">80°
-                                    <hr><em class="low">60°</em></p>
+                                <h5 class="card-title" id="update-four">12 hours</h5>
+                                <p class="card-text" id="high-four">80°
+                                    <hr><em class="low" id="low-four">60°</em></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-12 ">
                         <div class="card text-center shadow-sm p-3 mb-5 bg-white rounded">
                             <div class="card-body">
-                                <h5 class="card-title" id="day-five">FRIDAY</h5>
-                                <p class="card-text">80°
-                                    <hr><em class="low">60°</em></p>
+                                <h5 class="card-title" id="update-five">15 hours</h5>
+                                <p class="card-text" id="high-five">80°
+                                    <hr><em class="low" id="low-five">60°</em></p>
                             </div>
                         </div>
                     </div>
@@ -114,7 +116,7 @@
         crossorigin="anonymous"></script>
 
     <!-- Custom JS -->
-    <script src="index.js"></script>
+    <script src="src/index.js"></script>
 </body>
 
 </html>
