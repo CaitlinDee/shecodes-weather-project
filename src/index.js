@@ -19,7 +19,7 @@ currentTime.innerHTML = `Last Updated: ${hours}:${minutes}`;
 let threeHours = document.querySelector("#update-one");
 threeHours.innerHTML = `${hours + 3}:${minutes}`;
 let sixHours = document.querySelector("#update-two");
-sixHours.innerHTML = `${hours + 6}:${minutes}`;
+if (`${hours +6}` > 24) sixHours.innerHTML = `${hours-18}:${minutes}`; else twelveHours.innerHTML = `${hours + 12}:${minutes}`;
 let nineHours = document.querySelector("#update-three");
 if (`${hours +9}` > 24) nineHours.innerHTML = `${hours-15}:${minutes}`; else nineHours.innerHTML = `${hours + 12}:${minutes}`;
 let twelveHours = document.querySelector("#update-four");
@@ -53,7 +53,42 @@ function showTemperature(response) {
   rightNow.innerHTML = `${temp}°F`
   let here = document.querySelector("#here");
   here.innerHTML = (response.data.name);
+  let currentConditions = document.querySelector("#current-conditions");
+  currentConditions.innerHTML = (response.data.weather[0].description);
+  let apiUrlForecast = `http://api.openweathermap.org/data/2.5/forecast?q=${response.data.name}&units=imperial&appid=${apiKey}`;
+  console.log(apiUrlForecast);
+  axios.get(apiUrlForecast).then(showForecast);
+  
 }
+
+// Forecast
+function showForecast(response) {
+  let highOne = document.querySelector("#high-one");
+  console.log(response.data);
+  highOne.innerHTML = Math.round(response.data.list[0].main.temp_max)+"°";
+  let highTwo = document.querySelector("#high-two");
+  highTwo.innerHTML = Math.round(response.data.list[1].main.temp_max)+"°";
+  let highThree = document.querySelector("#high-three");
+  highThree.innerHTML = Math.round(response.data.list[2].main.temp_max)+"°";
+  let highFour = document.querySelector("#high-four");
+  highFour.innerHTML = Math.round(response.data.list[3].main.temp_max)+"°";
+  let highFive = document.querySelector("#high-five");
+  highFive.innerHTML = Math.round(response.data.list[4].main.temp_max)+"°";
+  
+  let conditionsOne = document.querySelector("#description-one");
+  conditionsOne.innerHTML = (response.data.list[0].weather[0].description);
+  let conditionsTwo = document.querySelector("#description-two");
+  conditionsTwo.innerHTML = (response.data.list[1].weather[0].description);
+  let conditionsThree = document.querySelector("#description-three");
+  conditionsThree.innerHTML = (response.data.list[2].weather[0].description);
+  let conditionsFour = document.querySelector("#description-four");
+  conditionsFour.innerHTML = (response.data.list[3].weather[0].description);
+  let conditionsFive = document.querySelector("#description-five");
+  conditionsFive.innerHTML = (response.data.list[4].weather[0].description);
+  
+}
+
+
 
 // Search city
 
