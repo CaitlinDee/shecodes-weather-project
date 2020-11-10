@@ -55,9 +55,9 @@ function showTemperature(response) {
   here.innerHTML = (response.data.name);
   let currentConditions = document.querySelector("#current-conditions");
   currentConditions.innerHTML = (response.data.weather[0].description);
-  let currentHumidity = document.querySelector("#current-humidity");
-  let humidity = (response.data.main.humidity);
-  currentHumidity.innerHTML = `Humidity: ${humidity}%`;
+  let currentWindSpeed = document.querySelector("#windSpeed");
+  let windSpeed = (response.data.wind.speed);
+  currentWindSpeed.innerHTML = `wind speed: ${windSpeed} mph`;
   let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${response.data.name}&units=imperial&appid=${apiKey}`;
   console.log(apiUrlForecast);
   axios.get(apiUrlForecast).then(showForecast);
