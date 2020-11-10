@@ -14,7 +14,7 @@ img {
 }
 
 .card-title {
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 .card-text {
   font-size: 2.5rem;
@@ -36,13 +36,16 @@ img {
 }
 #currentTemp {
   font-size: 3.5rem;
-}
-#current-conditions {
-  font-size: 16px;
-  font-style: italic;
   padding-bottom: 2rem;
 }
-
+#current-conditions {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+#current-humidity {
+  font-size: 1.5rem;
+  font-style: italic;
+}
 #header {
   background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }

@@ -50,11 +50,14 @@ function showTemperature(response) {
   console.log(response);
   let temp = Math.round(response.data.main.temp);
   let rightNow = document.querySelector("#currentTemp");
-  rightNow.innerHTML = `${temp}°F`
+  if (`${temp}` < 40) rightNow.innerHTML = `${temp}°F 🧊`; else rightNow.innerHTML = `${temp}°F ☀`
   let here = document.querySelector("#here");
   here.innerHTML = (response.data.name);
   let currentConditions = document.querySelector("#current-conditions");
   currentConditions.innerHTML = (response.data.weather[0].description);
+  let currentHumidity = document.querySelector("#current-humidity");
+  let humidity = (response.data.main.humidity);
+  currentHumidity.innerHTML = `Humidity: ${humidity}%`;
   let apiUrlForecast = `http://api.openweathermap.org/data/2.5/forecast?q=${response.data.name}&units=imperial&appid=${apiKey}`;
   console.log(apiUrlForecast);
   axios.get(apiUrlForecast).then(showForecast);
