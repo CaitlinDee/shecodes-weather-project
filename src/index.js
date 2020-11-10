@@ -58,7 +58,7 @@ function showTemperature(response) {
   let currentHumidity = document.querySelector("#current-humidity");
   let humidity = (response.data.main.humidity);
   currentHumidity.innerHTML = `Humidity: ${humidity}%`;
-  let apiUrlForecast = `http://api.openweathermap.org/data/2.5/forecast?q=${response.data.name}&units=imperial&appid=${apiKey}`;
+  let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${response.data.name}&units=imperial&appid=${apiKey}`;
   console.log(apiUrlForecast);
   axios.get(apiUrlForecast).then(showForecast);
   
