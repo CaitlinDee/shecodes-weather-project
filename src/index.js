@@ -61,8 +61,9 @@ function showTemperature(response) {
   let apiUrlForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${response.data.name}&units=imperial&appid=${apiKey}`;
   console.log(apiUrlForecast);
   axios.get(apiUrlForecast).then(showForecast);
-  
 }
+
+
 
 // Forecast
 function showForecast(response) {
@@ -105,6 +106,3 @@ function searchCity(event) {
 
 let searchButton = document.querySelector("#searchButton");
 searchButton.addEventListener("click", searchCity);
-
-showTemperature(Omaha);
-
