@@ -19,7 +19,7 @@ currentTime.innerHTML = `Last Updated: ${hours}:${minutes}`;
 let threeHours = document.querySelector("#update-one");
 threeHours.innerHTML = `${hours + 3}:${minutes}`;
 let sixHours = document.querySelector("#update-two");
-if (`${hours +6}` > 24) sixHours.innerHTML = `${hours-18}:${minutes}`; else twelveHours.innerHTML = `${hours + 12}:${minutes}`;
+if (`${hours +6}` > 24) sixHours.innerHTML = `${hours-18}:${minutes}`; else sixHours.innerHTML = `${hours + 12}:${minutes}`;
 let nineHours = document.querySelector("#update-three");
 if (`${hours +9}` > 24) nineHours.innerHTML = `${hours-15}:${minutes}`; else nineHours.innerHTML = `${hours + 12}:${minutes}`;
 let twelveHours = document.querySelector("#update-four");
@@ -105,5 +105,6 @@ function searchCity(event) {
 
 let searchButton = document.querySelector("#searchButton");
 searchButton.addEventListener("click", searchCity);
+
 
 
