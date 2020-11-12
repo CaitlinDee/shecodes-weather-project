@@ -106,5 +106,5 @@ function searchCity(event) {
 let searchButton = document.querySelector("#searchButton");
 searchButton.addEventListener("click", searchCity);
 
-
+showTemperature(Omaha);
 
